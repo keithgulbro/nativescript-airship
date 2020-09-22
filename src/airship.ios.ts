@@ -87,6 +87,7 @@ export class Airship implements Common {
         if (!this.pushIsValid()) {
             return undefined;
         }
+        console.log('Inside here...')
         return UAirship.channel().identifier;
     }
 
