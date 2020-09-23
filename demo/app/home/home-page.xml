@@ -3,10 +3,20 @@
     xmlns="http://schemas.nativescript.org/tns.xsd">
     
     <ActionBar>
-        <Label text="Airship"></Label>
+        <Label text="Airship Demo"></Label>
     </ActionBar>
 
     <StackLayout class="container">
-        <Label text="Welcome to the Airship push notification's demo. This demo provides an example of how Airship push notifications may be implemented." textWrap="true" />
+        <Label class="mb-40" text="Welcome to the Airship push notification's demo. This demo provides an example of how Airship push notifications may be implemented." textWrap="true" textAlignment="center" />
+
+        <label class="mb-20" text="{{ optStatusMessage }}" textAlignment="center" textWrap="true" />        
+
+        <Button tap="{{ optInPushNotifications }}" text="Opt In To Push Notifications" />
+        <Button class="mb-40" tap="{{ optOutPushNotifications }}" text="Opt Out Of Push Notifications" />
+
+        <Button tap="{{ fetchAirshipChannelId }}" text="Fetch Airship Channel ID" />
+        <Label class="mb-40" text="{{ airshipChannelId }}" textAlignment="center" textWrap="true" />
+
+        <Button tap="{{ resetPushNotificationsBadge }}" text="Reset Push Notifications Badge" />
     </StackLayout>
 </Page>

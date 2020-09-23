@@ -1,5 +1,7 @@
 import * as app from "tns-core-modules/application";
 
+require('./ios.delegate');
+
 app.run({ moduleName: "app-root" });
 
 /*
