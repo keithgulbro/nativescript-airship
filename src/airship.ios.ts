@@ -7,25 +7,19 @@ declare const UAPushNotificationDelegate: any;
 declare const UAConfig: any;
 declare const UAirship: any;
 
-// export class Airship {
-//     public hello() {
-//         return 'FML';
-//     }
-// }
+export class NsAirship implements Common {
 
-export class Airship implements Common {
-
-    private static instance: Airship = Airship.getInstance();
+    private static instance: NsAirship = new NsAirship();
 
     constructor() {
-        if (Airship.instance) {
-            throw new Error("Error: Instance failed: Use NsUrbanAirship.getInstance() instead of new.");
+        if (NsAirship.instance) {
+            throw new Error("Error: Instance failed: Use Airship.getInstance() instead of new.");
         }
-        Airship.instance = this;
+        NsAirship.instance = this;
     }
 
     static getInstance() {
-        return Airship.instance;
+        return NsAirship.instance;
     }
 
     public startUp(urbanAirshipSettings: AirshipSettings, _application: any): void {
@@ -87,7 +81,7 @@ export class Airship implements Common {
         if (!this.pushIsValid()) {
             return undefined;
         }
-        console.log('Inside here...')
+
         return UAirship.channel().identifier;
     }
 
@@ -100,9 +94,9 @@ export class Airship implements Common {
     }
 
     // support only for android
-    public getRegistrationToken(): string {
-        return "";
-    }
+    // public getRegistrationToken(): string {
+    //     return "";
+    // }
 
     public resetBadgeCount(): void {
         if (!this.pushIsValid()) {
